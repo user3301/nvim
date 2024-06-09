@@ -23,8 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-keymap("n", "<leader>e", ":Neotree toggle<CR>", {})
-
 keymap("n", "<leader>w", ":w<CR>", {})
 keymap("n", "<leader>q", ":q<CR>", {})
 
