@@ -1,0 +1,36 @@
+local keymap = vim.api.nvim_set_keymap
+
+vim.cmd("set number") -- show numbered lines
+vim.cmd("set expandtab") -- convert tabs to spaces
+vim.cmd("set shiftwidth=2") -- the number of spaces inserted for each indentation
+vim.cmd("set tabstop=2") -- insert 2 spaces for a tab
+
+-- leader key is <space>
+vim.g.mapleader = " "
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+
+keymap("n", "<leader>e", ":Neotree toggle<CR>", {})
+
+keymap("n", "<leader>w", ":w<CR>", {})
+keymap("n", "<leader>q", ":q<CR>", {})
+
+-- better window navigation
+keymap("n", "<C-h>", "<C-w>h", {})
+keymap("n", "<C-j>", "<C-w>j", {})
+keymap("n", "<C-k>", "<C-w>k", {})
+keymap("n", "<C-l>", "<C-w>l", {})
+
