@@ -24,7 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 keymap("n", "<leader>w", ":w<CR>", {})
-keymap("n", "<leader>q", ":q<CR>", {})
+keymap("n", "<leader>q", ":wa <bar> <esc>:qa<CR>", {})
 
 -- better window navigation
 keymap("n", "<C-h>", "<C-w>h", {})
