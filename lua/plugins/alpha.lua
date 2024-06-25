@@ -1,10 +1,71 @@
 return {
-    'goolord/alpha-nvim',
-    dependencies = {
-        'nvim-tree/nvim-web-devicons',
-        'nvim-lua/plenary.nvim'
-    },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.theta'.config)
+  'goolord/alpha-nvim',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'nvim-lua/plenary.nvim'
+  },
+  config = function ()
+    local alpha = require'alpha'
+    local dashboard = require'alpha.themes.dashboard'
+    local daysoftheweek={"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+    local day=daysoftheweek[os.date("*t").wday]
+    if (day == "Monday") then
+      dashboard.section.header.val = {
+        [[███    ███  ██████  ███    ██ ██████   █████  ██    ██ ]],
+        [[████  ████ ██    ██ ████   ██ ██   ██ ██   ██  ██  ██  ]],
+        [[██ ████ ██ ██    ██ ██ ██  ██ ██   ██ ███████   ████   ]],
+        [[██  ██  ██ ██    ██ ██  ██ ██ ██   ██ ██   ██    ██    ]],
+        [[██      ██  ██████  ██   ████ ██████  ██   ██    ██    ]],
+      }
+    elseif (day == "Tuesday") then
+      dashboard.section.header.val = {
+        [[████████ ██    ██ ███████ ███████ ██████   █████  ██    ██ ]],
+        [[   ██    ██    ██ ██      ██      ██   ██ ██   ██  ██  ██  ]],
+        [[   ██    ██    ██ █████   ███████ ██   ██ ███████   ████   ]],
+        [[   ██    ██    ██ ██           ██ ██   ██ ██   ██    ██    ]],
+        [[   ██     ██████  ███████ ███████ ██████  ██   ██    ██    ]],
+      }
+    elseif (day == "Wednesday") then
+      dashboard.section.header.val = {
+        [[██     ██ ███████ ██████  ███    ██ ███████ ███████ ██████   █████  ██    ██ ]],
+        [[██     ██ ██      ██   ██ ████   ██ ██      ██      ██   ██ ██   ██  ██  ██  ]],
+        [[██  █  ██ █████   ██   ██ ██ ██  ██ █████   ███████ ██   ██ ███████   ████   ]],
+        [[██ ███ ██ ██      ██   ██ ██  ██ ██ ██           ██ ██   ██ ██   ██    ██    ]],
+        [[ ███ ███  ███████ ██████  ██   ████ ███████ ███████ ██████  ██   ██    ██    ]],
+      }
+    elseif (day == "Thursday") then
+      dashboard.section.header.val  = {
+        [[████████ ██   ██ ██    ██ ██████  ███████ ██████   █████  ██    ██ ]],
+        [[   ██    ██   ██ ██    ██ ██   ██ ██      ██   ██ ██   ██  ██  ██  ]],
+        [[   ██    ███████ ██    ██ ██████  ███████ ██   ██ ███████   ████   ]],
+        [[   ██    ██   ██ ██    ██ ██   ██      ██ ██   ██ ██   ██    ██    ]],
+        [[   ██    ██   ██  ██████  ██   ██ ███████ ██████  ██   ██    ██    ]],
+      }
+    elseif (day == "Friday") then
+      dashboard.section.header.val = {
+        [[███████ ██████  ██ ██████   █████  ██    ██ ]],
+        [[██      ██   ██ ██ ██   ██ ██   ██  ██  ██  ]],
+        [[█████   ██████  ██ ██   ██ ███████   ████   ]],
+        [[██      ██   ██ ██ ██   ██ ██   ██    ██    ]],
+        [[██      ██   ██ ██ ██████  ██   ██    ██    ]],
+      }
+    elseif (day == "Saturday") then
+        dashboard.section.header.val = {
+          [[███████  █████  ████████ ██    ██ ██████  ██████   █████  ██    ██ ]],
+          [[██      ██   ██    ██    ██    ██ ██   ██ ██   ██ ██   ██  ██  ██  ]],
+          [[███████ ███████    ██    ██    ██ ██████  ██   ██ ███████   ████   ]],
+          [[     ██ ██   ██    ██    ██    ██ ██   ██ ██   ██ ██   ██    ██    ]],
+          [[███████ ██   ██    ██     ██████  ██   ██ ██████  ██   ██    ██    ]],
+      }
+    else
+        dashboard.section.header.val = {
+        [[███████ ██    ██ ███    ██ ██████   █████  ██    ██ ]],
+        [[██      ██    ██ ████   ██ ██   ██ ██   ██  ██  ██  ]],
+        [[███████ ██    ██ ██ ██  ██ ██   ██ ███████   ████   ]],
+        [[     ██ ██    ██ ██  ██ ██ ██   ██ ██   ██    ██    ]],
+        [[███████  ██████  ██   ████ ██████  ██   ██    ██    ]],
+      }
     end
+    alpha.setup(dashboard.config)
+  end
 }
