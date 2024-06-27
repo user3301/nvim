@@ -66,6 +66,14 @@ return {
         [[███████  ██████  ██   ████ ██████  ██   ██    ██    ]],
       }
     end
+    dashboard.section.buttons.val = {
+      dashboard.button("e", " New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("f", "󰈞 Find file", "<CMD>Telescope find_files<CR>"),
+      dashboard.button("p", " Projects", "<CMD>Telescope projects<CR>"),
+      dashboard.button("r", " Recent files", "<CMD>Telescope oldfiles<CR>"),
+      dashboard.button("t", "󰊄 Find text", "<CMD>Telescope live_grep<CR>"),
+      dashboard.button("q", "󰅖 Quit", "<CMD>quit<CR>"),
+    }
     alpha.setup(dashboard.config)
   end
 }
