@@ -17,7 +17,21 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+              special = {
+                reload = "require",
+              },
+            },
+            diagnostics = {
+              globals = {"vim", "reload"},
+            },
+          }
+        }
+      })
     end
   }
 }
