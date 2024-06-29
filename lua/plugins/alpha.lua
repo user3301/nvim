@@ -75,5 +75,6 @@ return {
       dashboard.button("q", "󰅖 Quit", "<CMD>quit<CR>"),
     }
     alpha.setup(dashboard.config)
+    vim.keymap.set("n", ";", "<cmd>Alpha<CR>", {})
   end
 }

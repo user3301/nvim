@@ -25,6 +25,7 @@ require("lazy").setup("plugins")
 
 keymap("n", "<leader>w", ":w<CR>", {})
 keymap("n", "<leader>q", ":wa <bar> <esc>:qa<CR>", {})
+keymap("n", "h", "<cmd>noh<CR>", {})
 
 -- better window navigation
 keymap("n", "<C-h>", "<C-w>h", {})
