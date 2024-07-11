@@ -1,9 +1,9 @@
 local keymap = vim.api.nvim_set_keymap
 
-vim.cmd("set number") -- show numbered lines
-vim.cmd("set expandtab") -- convert tabs to spaces
-vim.cmd("set shiftwidth=2") -- the number of spaces inserted for each indentation
-vim.cmd("set tabstop=2") -- insert 2 spaces for a tab
+vim.cmd("set number")            -- show numbered lines
+vim.cmd("set expandtab")         -- convert tabs to spaces
+vim.cmd("set shiftwidth=2")      -- the number of spaces inserted for each indentation
+vim.cmd("set tabstop=2")         -- insert 2 spaces for a tab
 
 -- leader key is <space>
 vim.g.mapleader = " "
@@ -32,4 +32,3 @@ keymap("n", "<C-h>", "<C-w>h", {})
 keymap("n", "<C-j>", "<C-w>j", {})
 keymap("n", "<C-k>", "<C-w>k", {})
 keymap("n", "<C-l>", "<C-w>l", {})
-
