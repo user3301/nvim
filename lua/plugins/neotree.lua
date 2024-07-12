@@ -9,6 +9,9 @@ return {
   },
   config = function()
     require("neo-tree").setup {
+      source_selector = {
+        statusline = true,
+      },
       filesystem = {
         follow_current_file = {
           enabled = true,
