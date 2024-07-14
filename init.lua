@@ -1,10 +1,10 @@
 local keymap = vim.api.nvim_set_keymap
 
-vim.cmd("set number")            -- show numbered lines
-vim.cmd("set expandtab")         -- convert tabs to spaces
-vim.cmd("set shiftwidth=2")      -- the number of spaces inserted for each indentation
-vim.cmd("set tabstop=2")         -- insert 2 spaces for a tab
-vim.cmd("set termguicolors")     -- enable 24-bit RGB color in the terminal
+vim.cmd("set number")        -- show numbered lines
+vim.cmd("set expandtab")     -- convert tabs to spaces
+vim.cmd("set shiftwidth=2")  -- the number of spaces inserted for each indentation
+vim.cmd("set tabstop=2")     -- insert 2 spaces for a tab
+vim.cmd("set termguicolors") -- enable 24-bit RGB color in the terminal
 
 -- leader key is <space>
 vim.g.mapleader = " "
@@ -21,6 +21,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.showmode = false -- we don't need to show mode information like "INSERT", "VISUAL" in default status line as it will be shown in lualine
 
 require("lazy").setup("plugins")
 
