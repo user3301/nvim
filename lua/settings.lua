@@ -7,3 +7,4 @@ vim.cmd("set tabstop=2")     -- insert 2 spaces for a tab
 vim.cmd("set termguicolors") -- enable 24-bit RGB color in the terminal
 
 vim.opt.showmode = false     -- don't show mode "INSERT", "NORMAL" in command
+vim.opt.foldmethod = "indent"
