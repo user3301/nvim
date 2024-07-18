@@ -33,5 +33,6 @@ return {
       }
     }
     vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", {})
+    vim.keymap.set("n", "<leader>b", ":Neotree action=focus source=buffers position=float<CR>", {})
   end
 }
