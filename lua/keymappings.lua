@@ -1,6 +1,7 @@
 local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
+keymap("n", "<leader>c", ":bd<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":wa <bar> <esc>:qa<CR>", opts)
 keymap("n", "<leader>h", "<cmd>noh<CR>", opts)
