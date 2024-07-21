@@ -24,3 +24,16 @@ else
   keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
   keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+    "lspinfo",
+    "man",
+    "checkhealth",
+  },
+  command = [[
+  nnoremap <buffer><silent> q :close<CR>
+  set nobuflisted
+  ]],
+})
