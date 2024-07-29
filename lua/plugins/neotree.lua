@@ -32,7 +32,8 @@ return {
         }
       }
     }
-    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", {})
-    vim.keymap.set("n", "<leader>b", ":Neotree action=focus source=buffers position=float<CR>", {})
+    local opts = { noremap = true, silent = true }
+    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)
+    vim.keymap.set("n", "<leader>b", ":Neotree action=focus source=buffers position=float<CR>", opts)
   end
 }
