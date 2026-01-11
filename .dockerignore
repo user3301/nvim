@@ -1,0 +1,10 @@
+# Git files (saves space in the image)
+.git
+.gitignore
+
+# README
+README.md
+
+# Docker files
+Dockerfile
+.dockerignore

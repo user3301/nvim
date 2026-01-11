@@ -34,12 +34,15 @@ return {
       -- after setting up completion using nvim-cmp, the default capabilities
       -- is required to attached to each langauge server to enable code snippets
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
       local on_attach = function(_, bufnr)
         lsp_keymap(bufnr)
       end
 
-      lspconfig.lua_ls.setup({
+      -- Configure lua_ls using the new vim.lsp.config API
+      vim.lsp.config['lua_ls'] = {
+        cmd = { 'lua-language-server' },
+        filetypes = { 'lua' },
+        root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', '.git' },
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -55,11 +58,20 @@ return {
             },
           },
         },
-      })
-      lspconfig.gopls.setup({
+      }
+
+      -- Configure gopls using the new vim.lsp.config API
+      vim.lsp.config['gopls'] = {
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+        root_markers = { 'go.work', 'go.mod', '.git' },
         capabilities = capabilities,
         on_attach = on_attach,
-      })
+      }
+
+      -- Enable LSP servers
+      vim.lsp.enable('lua_ls')
+      vim.lsp.enable('gopls')
     end,
   },
 }
